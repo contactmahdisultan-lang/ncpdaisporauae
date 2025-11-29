@@ -1,0 +1,785 @@
+<!doctype html>
+<html lang="bn">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NCP Diaspora Alliance – UAE</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
+  <style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Noto Sans Bengali', sans-serif;
+  color: #1a1a1a;
+  line-height: 1.6;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+/* Navigation */
+.nav-wrapper {
+  width: 100%;
+  background: #0a4d18;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 25px;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-circle {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, #0b6623, #0a8f4d);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 800;
+  color: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.site-title {
+  color: white;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+.nav-links a {
+  color: white;
+  font-size: 16px;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+  background: rgba(255,255,255,0.15);
+  transform: translateY(-2px);
+}
+
+/* Hero Section */
+.hero-section {
+  width: 100%;
+  padding: 100px 20px;
+  text-align: center;
+  background: linear-gradient(135deg, #e7fff2, #dff9e7, #e8fff3);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(10,143,77,0.1) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.hero-content {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-title {
+  font-size: 48px;
+  color: #0a4d18;
+  margin-bottom: 20px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.hero-description {
+  max-width: 700px;
+  margin: 0 auto 35px;
+  font-size: 18px;
+  color: #0a4d18;
+  line-height: 1.8;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 16px 32px;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #0b6623, #0a8f4d);
+  color: white;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(10,143,77,0.3);
+}
+
+.btn-secondary {
+  background: white;
+  color: #0a8f4d;
+  border: 2px solid #0a8f4d;
+}
+
+.btn-secondary:hover {
+  background: #0a8f4d;
+  color: white;
+  transform: translateY(-3px);
+}
+
+/* Container */
+.main-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+/* Committee Box */
+.committee-box {
+  background: white;
+  padding: 40px;
+  margin-bottom: 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.committee-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+}
+
+.committee-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #b22222;
+  margin-bottom: 25px;
+  border-left: 6px solid #b22222;
+  padding-left: 15px;
+  line-height: 1.4;
+}
+
+.member-list {
+  list-style: none;
+  padding: 0;
+}
+
+.member-list li {
+  padding: 12px 0;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.member-list li:last-child {
+  border-bottom: none;
+}
+
+.role {
+  font-weight: 700;
+  color: #0a4d18;
+  min-width: 200px;
+}
+
+.name {
+  color: #333;
+}
+
+/* Regional Committees */
+.regional-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.regional-card {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  border-top: 4px solid #0a8f4d;
+  transition: all 0.3s ease;
+}
+
+.regional-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.12);
+}
+
+.regional-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #0a4d18;
+  margin-bottom: 15px;
+}
+
+.regional-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.regional-card li {
+  padding: 8px 0;
+  font-size: 15px;
+  color: #555;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.regional-card li::before {
+  content: '✓';
+  color: #0a8f4d;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* Join Section */
+.join-section {
+  background: linear-gradient(135deg, #0b6623, #0a8f4d);
+  padding: 80px 20px;
+  text-align: center;
+  color: white;
+  margin: 60px 0;
+  border-radius: 16px;
+}
+
+.join-section h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.join-section p {
+  font-size: 18px;
+  max-width: 700px;
+  margin: 0 auto 30px;
+  line-height: 1.8;
+}
+
+/* Contact Section */
+.contact-section {
+  background: #f9f9f9;
+  padding: 60px 40px;
+  border-radius: 16px;
+  margin-bottom: 30px;
+}
+
+.contact-section h2 {
+  font-size: 32px;
+  color: #0a4d18;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.contact-card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-5px);
+}
+
+.contact-icon {
+  font-size: 36px;
+  margin-bottom: 15px;
+}
+
+.contact-card h3 {
+  font-size: 20px;
+  color: #0a4d18;
+  margin-bottom: 10px;
+}
+
+.contact-card p {
+  color: #666;
+  font-size: 15px;
+}
+
+/* Footer */
+footer {
+  width: 100%;
+  background: linear-gradient(135deg, #0a4d18, #0b6623);
+  padding: 40px 20px;
+  color: white;
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  transition: opacity 0.3s ease;
+}
+
+.footer-links a:hover {
+  opacity: 0.8;
+}
+
+.footer-copyright {
+  font-size: 14px;
+  opacity: 0.9;
+  margin-top: 20px;
+}
+
+/* Section Headers */
+.section-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-header h2 {
+  font-size: 36px;
+  color: #0a4d18;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.section-header p {
+  font-size: 18px;
+  color: #666;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-links {
+    gap: 15px;
+  }
+  
+  .nav-links a {
+    font-size: 14px;
+    padding: 6px 10px;
+  }
+  
+  .hero-title {
+    font-size: 32px;
+  }
+  
+  .hero-description {
+    font-size: 16px;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .btn {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  
+  .committee-box {
+    padding: 25px;
+  }
+  
+  .committee-title {
+    font-size: 22px;
+  }
+  
+  .role {
+    min-width: auto;
+    width: 100%;
+  }
+  
+  .regional-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-title {
+    font-size: 18px;
+  }
+  
+  .logo-circle {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+  
+  .hero-section {
+    padding: 60px 15px;
+  }
+  
+  .hero-title {
+    font-size: 26px;
+  }
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.committee-box,
+.regional-card,
+.contact-card {
+  animation: fadeInUp 0.6s ease-out;
+}
+</style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+ <body><!-- Navigation -->
+  <div class="nav-wrapper">
+   <nav>
+    <div class="logo-section">
+     <div class="logo-circle">
+      N
+     </div>
+     <div class="site-title" id="site-title">
+      এনসিপি ইউএই
+     </div>
+    </div>
+    <div class="nav-links"><a href="#home">হোম</a> <a href="#central">কেন্দ্রীয় কমিটি</a> <a href="#regions">আঞ্চলিক কমিটি</a> <a href="#join">নিবন্ধন</a> <a href="#contact">যোগাযোগ</a>
+    </div>
+   </nav>
+  </div><!-- Hero Section -->
+  <section id="home" class="hero-section">
+   <div class="hero-content">
+    <h1 class="hero-title" id="hero-title">প্রবাসে একসাথে, দেশের জন্য</h1>
+    <p class="hero-description" id="hero-description">সংযুক্ত আরব আমিরাতে কার্যরত আমাদের প্রবাসী ভাই–বোনদের সংগঠিত করার জন্য ন্যাশনাল সিটিজেন পার্টি (NCP) – UAE Chapter সদস্য নিবন্ধন চলছে। আপনি যুক্ত হোন এই জাতীয় আন্দোলনে।</p>
+    <div class="cta-buttons"><a href="#join" class="btn btn-primary" id="primary-btn">এখনই নিবন্ধন করুন</a> <a href="#central" class="btn btn-secondary" id="secondary-btn">আরও জানুন</a>
+    </div>
+   </div>
+  </section><!-- Main Container -->
+  <div class="main-container"><!-- Central Committee Section -->
+   <section id="central">
+    <div class="section-header">
+     <h2>কেন্দ্রীয় নেতৃত্ব</h2>
+     <p>সংযুক্ত আরব আমিরাতের জন্য NCP কেন্দ্রীয় আহ্বায়ক কমিটি</p>
+    </div>
+    <div class="committee-box">
+     <div class="committee-title" id="central-committee-title">
+      কেন্দ্রীয় আহ্বায়ক কমিটি (১৫ সদস্য) — সংযুক্ত আরব আমিরাত
+     </div>
+     <ul class="member-list">
+      <li><span class="role">আহ্বায়ক:</span><span class="name">ইঞ্জি. মোহাম্মদ আমিনুল হক</span></li>
+      <li><span class="role">মুখ্য আহ্বায়ক:</span><span class="name">আরিফ রিয়াজ</span></li>
+      <li><span class="role">সদস্যসচিব:</span><span class="name">জসিম উদ্দিন</span></li>
+      <li><span class="role">মুখ্য সংগঠক:</span><span class="name">মোহাম্মদ রাশেদ</span></li>
+      <li><span class="role">উপদেষ্টা:</span><span class="name">ইশফাক আহমেদ</span></li>
+      <li><span class="role">মুখ্য সমন্বয়ক (মিডিয়া ও প্রচার):</span><span class="name">মুরাদ বিন হোসেন</span></li>
+      <li><span class="role">যুগ্ম সমন্বয়ক (মিডিয়া ও প্রচার):</span><span class="name">সুলতান আহমেদ</span></li>
+      <li><span class="role">যুব সমন্বয়ক:</span><span class="name">আব্দুল্লাহ আল মামুন</span></li>
+      <li><span class="role">যুগ্ম যুব সমন্বয়ক:</span><span class="name">জাহিদ হাসান (জনি)</span></li>
+      <li><span class="role">ছাত্র সমন্বয়ক:</span><span class="name">নীলিমা আহমেদ</span></li>
+      <li><span class="role">শ্রমিক সমন্বয়ক:</span><span class="name">মো. আরব খায়ের পাপ্পু</span></li>
+      <li><span class="role">মহিলা সমন্বয়ক:</span><span class="name">ফাতেমা খাতুন</span></li>
+      <li><span class="role">সাংগঠনিক সম্পাদক:</span><span class="name">রফিকুল ইসলাম</span></li>
+      <li><span class="role">কোষাধ্যক্ষ:</span><span class="name">শাহীন আহমেদ</span></li>
+      <li><span class="role">আইটি সমন্বয়ক:</span><span class="name">তানভীর রহমান</span></li>
+     </ul>
+    </div>
+   </section><!-- Regional Committees Section -->
+   <section id="regions">
+    <div class="section-header">
+     <h2>আঞ্চলিক কমিটি</h2>
+     <p>UAE এর বিভিন্ন অঞ্চলে আমাদের শাখা সমূহ</p>
+    </div>
+    <div class="regional-grid">
+     <div class="regional-card">
+      <div class="regional-title">
+       দুবাই কমিটি
+      </div>
+      <ul>
+       <li>আঞ্চলিক সমন্বয়ক: মাহমুদ হাসান</li>
+       <li>সহ-সমন্বয়ক: সাবিনা ইয়াসমিন</li>
+       <li>সংগঠক: করিম আহমেদ</li>
+       <li>প্রচার সম্পাদক: রিজভী করিম</li>
+      </ul>
+     </div>
+     <div class="regional-card">
+      <div class="regional-title">
+       আবুধাবি কমিটি
+      </div>
+      <ul>
+       <li>আঞ্চলিক সমন্বয়ক: শফিকুর রহমান</li>
+       <li>সহ-সমন্বয়ক: নাজমা বেগম</li>
+       <li>সংগঠক: সাইফুল ইসলাম</li>
+       <li>প্রচার সম্পাদক: হাসান মাহমুদ</li>
+      </ul>
+     </div>
+     <div class="regional-card">
+      <div class="regional-title">
+       শারজাহ কমিটি
+      </div>
+      <ul>
+       <li>আঞ্চলিক সমন্বয়ক: আব্দুর রহিম</li>
+       <li>সহ-সমন্বয়ক: রুমানা আক্তার</li>
+       <li>সংগঠক: মনির হোসেন</li>
+       <li>প্রচার সম্পাদক: ফয়সাল আহমেদ</li>
+      </ul>
+     </div>
+     <div class="regional-card">
+      <div class="regional-title">
+       আজমান কমিটি
+      </div>
+      <ul>
+       <li>আঞ্চলিক সমন্বয়ক: জাকির হোসেন</li>
+       <li>সহ-সমন্বয়ক: শাহানা পারভীন</li>
+       <li>সংগঠক: রাসেল মিয়া</li>
+       <li>প্রচার সম্পাদক: নাসির উদ্দিন</li>
+      </ul>
+     </div>
+    </div>
+   </section><!-- Join Section -->
+   <section id="join" class="join-section">
+    <h2>আজই যুক্ত হোন</h2>
+    <p>NCP UAE চ্যাপ্টারের সদস্য হয়ে প্রবাসে বাংলাদেশের জন্য কাজ করুন। একসাথে আমরা শক্তিশালী, একসাথে আমরা পরিবর্তন আনতে পারি।</p><a href="https://ncpdiasporauae.org/register" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="background: white; color: #0a8f4d; box-shadow: 0 4px 16px rgba(0,0,0,0.2);"> অনলাইন নিবন্ধন ফর্ম </a>
+   </section><!-- Contact Section -->
+   <section id="contact" class="contact-section">
+    <h2>যোগাযোগ করুন</h2>
+    <div class="contact-grid">
+     <div class="contact-card">
+      <div class="contact-icon">
+       📧
+      </div>
+      <h3>ইমেইল</h3>
+      <p>info@ncpdiasporauae.org</p>
+     </div>
+     <div class="contact-card">
+      <div class="contact-icon">
+       📱
+      </div>
+      <h3>হটলাইন</h3>
+      <p>+971 50 123 4567</p>
+     </div>
+     <div class="contact-card">
+      <div class="contact-icon">
+       🌐
+      </div>
+      <h3>ওয়েবসাইট</h3>
+      <p>www.ncpdiasporauae.org</p>
+     </div>
+     <div class="contact-card">
+      <div class="contact-icon">
+       📍
+      </div>
+      <h3>ঠিকানা</h3>
+      <p>Dubai, United Arab Emirates</p>
+     </div>
+    </div>
+   </section>
+  </div><!-- Footer -->
+  <footer>
+   <div class="footer-content">
+    <div class="footer-links"><a href="#home">হোম</a> <a href="#central">কেন্দ্রীয় কমিটি</a> <a href="#regions">আঞ্চলিক কমিটি</a> <a href="#join">নিবন্ধন</a> <a href="#contact">যোগাযোগ</a>
+    </div>
+    <div class="footer-copyright" id="footer-text">
+     © 2025 NCP UAE. All rights reserved.
+    </div>
+   </div>
+  </footer>
+  <script>
+  const defaultConfig = {
+    site_title: "এনসিপি ইউএই",
+    hero_title: "প্রবাসে একসাথে, দেশের জন্য",
+    hero_description: "সংযুক্ত আরব আমিরাতে কার্যরত আমাদের প্রবাসী ভাই–বোনদের সংগঠিত করার জন্য ন্যাশনাল সিটিজেন পার্টি (NCP) – UAE Chapter সদস্য নিবন্ধন চলছে। আপনি যুক্ত হোন এই জাতীয় আন্দোলনে।",
+    primary_button_text: "এখনই নিবন্ধন করুন",
+    secondary_button_text: "আরও জানুন",
+    central_committee_title: "কেন্দ্রীয় আহ্বায়ক কমিটি (১৫ সদস্য) — সংযুক্ত আরব আমিরাত",
+    footer_text: "© 2025 NCP UAE. All rights reserved.",
+    background_color: "#f4f4f4",
+    primary_color: "#0a4d18",
+    accent_color: "#0a8f4d",
+    text_color: "#1a1a1a",
+    highlight_color: "#b22222"
+  };
+
+  async function onConfigChange(config) {
+    const siteTitleEl = document.getElementById('site-title');
+    const heroTitleEl = document.getElementById('hero-title');
+    const heroDescEl = document.getElementById('hero-description');
+    const primaryBtnEl = document.getElementById('primary-btn');
+    const secondaryBtnEl = document.getElementById('secondary-btn');
+    const committeeTitleEl = document.getElementById('central-committee-title');
+    const footerTextEl = document.getElementById('footer-text');
+
+    if (siteTitleEl) siteTitleEl.textContent = config.site_title || defaultConfig.site_title;
+    if (heroTitleEl) heroTitleEl.textContent = config.hero_title || defaultConfig.hero_title;
+    if (heroDescEl) heroDescEl.textContent = config.hero_description || defaultConfig.hero_description;
+    if (primaryBtnEl) primaryBtnEl.textContent = config.primary_button_text || defaultConfig.primary_button_text;
+    if (secondaryBtnEl) secondaryBtnEl.textContent = config.secondary_button_text || defaultConfig.secondary_button_text;
+    if (committeeTitleEl) committeeTitleEl.textContent = config.central_committee_title || defaultConfig.central_committee_title;
+    if (footerTextEl) footerTextEl.textContent = config.footer_text || defaultConfig.footer_text;
+
+    // Apply colors
+    document.body.style.background = config.background_color || defaultConfig.background_color;
+    document.body.style.color = config.text_color || defaultConfig.text_color;
+  }
+
+  function mapToCapabilities(config) {
+    return {
+      recolorables: [
+        {
+          get: () => config.background_color || defaultConfig.background_color,
+          set: (value) => {
+            if (window.elementSdk) {
+              window.elementSdk.config.background_color = value;
+              window.elementSdk.setConfig({ background_color: value });
+            }
+          }
+        },
+        {
+          get: () => config.primary_color || defaultConfig.primary_color,
+          set: (value) => {
+            if (window.elementSdk) {
+              window.elementSdk.config.primary_color = value;
+              window.elementSdk.setConfig({ primary_color: value });
+            }
+          }
+        },
+        {
+          get: () => config.accent_color || defaultConfig.accent_color,
+          set: (value) => {
+            if (window.elementSdk) {
+              window.elementSdk.config.accent_color = value;
+              window.elementSdk.setConfig({ accent_color: value });
+            }
+          }
+        },
+        {
+          get: () => config.text_color || defaultConfig.text_color,
+          set: (value) => {
+            if (window.elementSdk) {
+              window.elementSdk.config.text_color = value;
+              window.elementSdk.setConfig({ text_color: value });
+            }
+          }
+        },
+        {
+          get: () => config.highlight_color || defaultConfig.highlight_color,
+          set: (value) => {
+            if (window.elementSdk) {
+              window.elementSdk.config.highlight_color = value;
+              window.elementSdk.setConfig({ highlight_color: value });
+            }
+          }
+        }
+      ],
+      borderables: [],
+      fontEditable: undefined,
+      fontSizeable: undefined
+    };
+  }
+
+  function mapToEditPanelValues(config) {
+    return new Map([
+      ["site_title", config.site_title || defaultConfig.site_title],
+      ["hero_title", config.hero_title || defaultConfig.hero_title],
+      ["hero_description", config.hero_description || defaultConfig.hero_description],
+      ["primary_button_text", config.primary_button_text || defaultConfig.primary_button_text],
+      ["secondary_button_text", config.secondary_button_text || defaultConfig.secondary_button_text],
+      ["central_committee_title", config.central_committee_title || defaultConfig.central_committee_title],
+      ["footer_text", config.footer_text || defaultConfig.footer_text]
+    ]);
+  }
+
+  if (window.elementSdk) {
+    window.elementSdk.init({
+      defaultConfig,
+      onConfigChange,
+      mapToCapabilities,
+      mapToEditPanelValues
+    });
+  }
+</script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a5cae2536597689',t:'MTc2NDM2MjQyNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
